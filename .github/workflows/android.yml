@@ -1,0 +1,26 @@
+名称：Android CI
+
+on:
+  push:
+    branches: [    分支：[“ Main”]"main" ]
+  pull_request:
+    branches: [    分支：[“ Main”]"main" ]
+
+jobs:
+  build:
+
+    runs-on:     运行：ubuntu-latest
+
+    steps:
+    - uses:     - 用途：Action/Checkout@V4
+    - name:     - 名称：设置JDK 11
+      uses:       用途：Action/Setup-Java@V4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        缓存：         缓存：gradle
+
+    -名称：      - 姓名：Grant授予gradlew的授权执行权限
+      运行：       运行：chmod +x gradlew
+    -名称：      - 名称：与gradle建造
+      跑步：       运行：./gradlew build
